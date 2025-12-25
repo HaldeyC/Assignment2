@@ -4,7 +4,7 @@
 }
 
 form {
-   background: var(--secondary-color);
+   background: var(--form-color);
    border: 2px solid var(--secondary-color);
    border-radius: 0.5rem;
    padding: 2rem;
@@ -19,7 +19,7 @@ form > div {
 }
 
 label {
-   color: var(--primary-color);
+   color: var(--secondery-color);
    text-align: end;
 }
 
@@ -48,17 +48,17 @@ select:focus {
    transition: opacity 0.6s ease;
 }
 
-.char-count {
+.txt-counter {
    font-size: 0.9rem;
    font-style: italic;
-   color: var(--primary-color);
+   color: var(--secondery-color);
 }
 
-.char-count.under {
+.txt-counter.under {
    color: var(--error-color);
 }
 
-.char-count.over {
+.txt-counter.over {
    color: var(--valid-color);
 }
 
