@@ -139,60 +139,6 @@ section > div {
    background-color: var(--section-odd-color);
 }
 
-/* Form */
-#form {
-   min-width: 50vw;
-}
-
-form {
-   background: var(--bg-gradient-form);
-   border: 2px solid var(--secondary-color);
-   border-radius: 0.5rem;
-   padding: 2rem;
-   font-size: 1.2rem;
-}
-
-form > div {
-   display: grid;
-   grid-template-columns: 100px 1fr;
-   gap: 1rem;
-   margin-top: 1rem;
-}
-
-label {
-   color: var(--primary-color);
-   text-align: end;
-}
-
-input,
-textarea {
-   padding-left: 10px;
-}
-
-textarea {
-   padding-top: 10px;
-}
-
-input:focus {
-   border: 1px solid var(--focus-color);
-}
-
-button {
-   display: block;
-   border-radius: 9999px;
-   color: var(--secondary-color);
-   font-size: 1.2rem;
-   margin-top: 1rem;
-   margin-left: auto;
-   padding: 0.3rem 1.5rem;
-   transition: all 0.3s ease;
-   cursor: pointer;
-}
-
-button:hover {
-   scale: 1.1;
-}
-
 /* Footer */
 footer {
    background-color: var(--secondary-color);

@@ -103,16 +103,21 @@
                   <input id="lname" type="text" name="lname" required placeholder="Doe" />
                </div>
                <p id="lname-err" class="error-msg">Error msg</p>
-               <div>
-                  <label for="phone">Phone</label>
-                  <input id="phone" type="tel" name="phone" placeholder="46-8-123-456-78" />
-               </div>
-               <p id="phone-err" class="error-msg">Error msg</p>
+
                <div>
                   <label for="email">Email</label>
                   <input id="email" type="email" name="email" required placeholder="john@doe.se" />
                </div>
                <p id="email-err" class="error-msg">Error msg</p>
+               <div>
+                  <label for="subject">Subject</label>
+                  <select id="subject" name="subject">
+                     <option value="">Select a subject</option>
+                     <option value="1">Interests</option>
+                     <option value="2">Future Goals</option>
+                     <option value="3">Contact</option>
+                  </select>
+               </div>
                <div>
                   <label for="msg">Message</label>
                   <textarea
