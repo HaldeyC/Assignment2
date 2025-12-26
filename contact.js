@@ -35,8 +35,21 @@ function showError(inputElement, outputElement, errMsg) {
    outputElement.textContent = errMsg;
 }
 
-function clearError() {}
+function clearError(inputElement, outputElement) {
+   inputElement.classList.remove("error-border");
+   outputElement.classList.remove("show");
+   outputElement.textContent = "";
+}
 function clearForm() {}
+
+// Eventlisteners
+firstName.addEventListener("input", function () {
+   const lettersOnly = /^[a-zA-Z]+$/;
+
+   if (lettersOnly.test(firstName.value)) {
+      clearError(firstName, fnameErr);
+   }
+});
 
 // Count characters in textarea
 msg.addEventListener("input", function () {
