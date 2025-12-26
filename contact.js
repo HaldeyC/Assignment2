@@ -23,6 +23,19 @@ function validateName() {
       showError(firstName, fnameErr, "Field can only contain letters!");
       return false;
    }
+   firstName.classList.add("valid-border");
+   return true;
+}
+
+function validateLastName() {
+   const lnameValue = lastName.value;
+   const lettersOnly = /^[a-zA-Z]+$/;
+
+   if (!lettersOnly.test(lnameValue)) {
+      showError(lastName, lnameErr, "Field can only contain letters!");
+      return false;
+   }
+   lastName.classList.add("valid-border");
    return true;
 }
 
@@ -36,7 +49,7 @@ function showError(inputElement, outputElement, errMsg) {
 }
 
 function clearError(inputElement, outputElement) {
-   inputElement.classList.remove("error-border");
+   inputElement.classList.remove("error-border", "valid-border");
    outputElement.classList.remove("show");
    outputElement.textContent = "";
 }
@@ -46,8 +59,16 @@ function clearForm() {}
 firstName.addEventListener("input", function () {
    const lettersOnly = /^[a-zA-Z]+$/;
 
-   if (lettersOnly.test(firstName.value)) {
+   if (lettersOnly.test(firstName.value) || firstName.value === "") {
       clearError(firstName, fnameErr);
+   }
+});
+
+lastName.addEventListener("input", function () {
+   const lettersOnly = /^[a-zA-Z]+$/;
+
+   if (lettersOnly.test(lastName.value) || lastName.value === "") {
+      clearError(lastName, lnameErr);
    }
 });
 
