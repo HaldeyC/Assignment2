@@ -15,10 +15,26 @@ const txtCounter = document.getElementById("txt-counter");
 // Buttons
 
 // Validation functions
-function validateName() {}
+function validateName() {
+   const fnameValue = firstName.value;
+   const lettersOnly = /^[a-zA-Z]+$/;
+
+   if (!lettersOnly.test(fnameValue)) {
+      showError(firstName, fnameErr, "Field can only contain letters!");
+      return false;
+   }
+   return true;
+}
+
 function validateEmail() {}
 function validateMessage() {}
-function showError() {}
+
+function showError(inputElement, outputElement, errMsg) {
+   inputElement.classList.add("error-border");
+   outputElement.classList.add("show");
+   outputElement.textContent = errMsg;
+}
+
 function clearError() {}
 function clearForm() {}
 

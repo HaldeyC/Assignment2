@@ -40,12 +40,27 @@ select:focus {
    border: 2px solid var(--focus-color);
 }
 
+.error-border {
+   border: 2px solid var(--error-color);
+}
+
+.valid-border {
+   border: 2px solid var(--valid-color);
+}
+
 .error-msg {
+   display: none;
    text-align: end;
    color: var(--error-color);
    font-size: 0.9rem;
    font-style: italic;
    transition: opacity 0.6s ease;
+   opacity: 0;
+}
+
+.error-msg.show {
+   display: block;
+   opacity: 1;
 }
 
 .txt-counter {
