@@ -64,6 +64,7 @@ select:focus {
 }
 
 .txt-counter {
+   text-align: end;
    font-size: 0.9rem;
    font-style: italic;
    color: var(--secondery-color);

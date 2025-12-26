@@ -39,7 +39,17 @@ function validateLastName() {
    return true;
 }
 
-function validateEmail() {}
+function validateEmail() {
+   const emailValue = email.value;
+
+   if (!emailValue.includes("@")) {
+      showError(email, emailErr, "Field must contain '@'");
+      return false;
+   }
+   email.classList.add("valid-border");
+   return true;
+}
+
 function validateMessage() {}
 
 function showError(inputElement, outputElement, errMsg) {
@@ -69,6 +79,14 @@ lastName.addEventListener("input", function () {
 
    if (lettersOnly.test(lastName.value) || lastName.value === "") {
       clearError(lastName, lnameErr);
+   }
+});
+
+email.addEventListener("input", function () {
+   const emailValue = email.value;
+
+   if (emailValue.includes("@")) {
+      clearError(email, emailErr);
    }
 });
 
