@@ -10,6 +10,7 @@ const subject = document.getElementById("subject");
 const fnameErr = document.getElementById("fname-err");
 const lnameErr = document.getElementById("lname-err");
 const emailErr = document.getElementById("email-err");
+const countErr = document.getElementById("count-err");
 const txtCounter = document.getElementById("txt-counter");
 
 // Buttons
@@ -50,7 +51,17 @@ function validateEmail() {
    return true;
 }
 
-function validateMessage() {}
+function validateMessage() {
+   const messageValue = msg.value.length;
+
+   if (messageValue < 20) {
+      showError(msg, countErr, "Field must have at least 20 characters");
+      return false;
+   } else {
+      msg.classList.add("valid-border");
+      return true;
+   }
+}
 
 function showError(inputElement, outputElement, errMsg) {
    inputElement.classList.add("error-border");
@@ -63,6 +74,7 @@ function clearError(inputElement, outputElement) {
    outputElement.classList.remove("show");
    outputElement.textContent = "";
 }
+
 function clearForm() {}
 
 // Eventlisteners
@@ -90,7 +102,14 @@ email.addEventListener("input", function () {
    }
 });
 
-// Count characters in textarea
+subject.addEventListener("change", function () {
+   const subjectValue = subject.value;
+
+   if (subjectValue !== "") {
+      subject.classList.add("valid-border");
+   } else subject.classList.remove("valid-border");
+});
+
 msg.addEventListener("input", function () {
    const text = msg.value;
    const count = text.length;
@@ -104,6 +123,7 @@ msg.addEventListener("input", function () {
    if (count < 20) {
       txtCounter.classList.add("under");
    } else {
+      clearError(msg, countErr);
       txtCounter.classList.add("over");
    }
 });

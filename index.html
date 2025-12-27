@@ -112,7 +112,7 @@
                <div>
                   <label for="subject">Subject</label>
                   <select id="subject" name="subject">
-                     <option value="">Select a subject</option>
+                     <option value="" disabled selected hidden>Select a subject</option>
                      <option value="1">Interests</option>
                      <option value="2">Future Goals</option>
                      <option value="3">Contact</option>
@@ -129,6 +129,7 @@
                      placeholder="Enter your message"></textarea>
                </div>
                <p id="txt-counter" class="txt-counter">0 / 20</p>
+               <p id="count-err" class="error-msg"></p>
                <div class="buttons">
                   <button type="reset">Reset</button>
                   <button type="submit">Send</button>
