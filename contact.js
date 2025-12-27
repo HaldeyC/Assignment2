@@ -104,6 +104,7 @@ function clearForm() {
    msg.classList.remove("valid-border", "error-border");
    txtCounter.textContent = "0 / 20";
    txtCounter.classList.remove("under", "over");
+   countErr.classList.remove("show");
 }
 
 function showModal() {
