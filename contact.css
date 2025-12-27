@@ -4,6 +4,7 @@
 }
 
 form {
+   position: relative;
    background: var(--form-color);
    border: 2px solid var(--secondary-color);
    border-radius: 0.5rem;
@@ -79,6 +80,30 @@ select:focus {
 
 .txt-counter.over {
    color: var(--valid-color);
+}
+
+#form-sent {
+   display: none;
+   position: absolute;
+   grid-template-columns: 1fr;
+   width: 80%;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+#form-sent.sent {
+   display: block;
+}
+
+.success-info {
+   background-color: var(--valid-color);
+   color: var(--primary-color);
+   padding: 10px;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
 }
 
 .buttons {

@@ -5,6 +5,7 @@ const lastName = document.getElementById("lname");
 const email = document.getElementById("email");
 const msg = document.getElementById("msg");
 const subject = document.getElementById("subject");
+const formSent = document.getElementById("form-sent");
 
 // Outputs
 const fnameErr = document.getElementById("fname-err");
@@ -12,6 +13,7 @@ const lnameErr = document.getElementById("lname-err");
 const emailErr = document.getElementById("email-err");
 const countErr = document.getElementById("count-err");
 const txtCounter = document.getElementById("txt-counter");
+const thanksTxt = document.getElementById("thanksTxt");
 
 // Buttons
 form.addEventListener("reset", function (e) {
@@ -28,7 +30,7 @@ form.addEventListener("submit", function (e) {
    if (!isFirstNameValid || !isLastNameValid || !isEmailValid || !isMsgValid) {
       e.preventDefault();
    } else {
-      alert("Thanks");
+      showModal();
    }
 });
 
@@ -102,6 +104,20 @@ function clearForm() {
    msg.classList.remove("valid-border", "error-border");
    txtCounter.textContent = "0 / 20";
    txtCounter.classList.remove("under", "over");
+}
+
+function showModal() {
+   const senderName = firstName.value;
+   thanksTxt.innerHTML = "Thank you " + senderName + "!";
+
+   formSent.classList.add("sent");
+   setTimeout(() => {
+      clearForm();
+   }, 500);
+
+   setTimeout(() => {
+      formSent.classList.remove("sent");
+   }, 3000);
 }
 
 // Eventlisteners
