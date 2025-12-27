@@ -49,18 +49,21 @@ select:focus {
 }
 
 .error-msg {
-   display: none;
    text-align: end;
    color: var(--error-color);
    font-size: 0.9rem;
    font-style: italic;
-   transition: opacity 0.6s ease;
    opacity: 0;
+   transform: translateX(-200px);
+   transition: all 0.6s ease-out;
+   visibility: hidden;
+   overflow: hidden;
 }
 
 .error-msg.show {
-   display: block;
    opacity: 1;
+   transform: translateX(0);
+   visibility: visible;
 }
 
 .txt-counter {
