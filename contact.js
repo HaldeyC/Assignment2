@@ -32,10 +32,9 @@ function validateLastName() {
    const lettersOnly = /^[a-zA-Z]+$/;
 
    if (!lettersOnly.test(lnameValue)) {
-      showError(lastName, lnameErr, "Field can only contain letters!");
+      showError(lnameErr, "Field can only contain letters!");
       return false;
    }
-   lastName.classList.add("valid-border");
    return true;
 }
 
@@ -43,10 +42,9 @@ function validateEmail() {
    const emailValue = email.value;
 
    if (!emailValue.includes("@")) {
-      showError(email, emailErr, "Field must contain '@'");
+      showError(emailErr, "Field must contain '@'");
       return false;
    }
-   email.classList.add("valid-border");
    return true;
 }
 
@@ -54,10 +52,9 @@ function validateMessage() {
    const messageValue = msg.value.length;
 
    if (messageValue < 20) {
-      showError(msg, countErr, "Field must have at least 20 characters");
+      showError(countErr, "Field must have at least 20 characters");
       return false;
    } else {
-      msg.classList.add("valid-border");
       return true;
    }
 }
@@ -94,8 +91,16 @@ firstName.addEventListener("input", function () {
 lastName.addEventListener("input", function () {
    const lettersOnly = /^[a-zA-Z]+$/;
 
-   if (lettersOnly.test(lastName.value) || lastName.value === "") {
-      clearError(lastName, lnameErr);
+   if (lettersOnly.test(lastName.value)) {
+      lastName.classList.add("valid-border");
+      lastName.classList.remove("error-border");
+      clearError(lnameErr);
+   } else if (lastName.value === "") {
+      lastName.classList.remove("valid-border", "error-border");
+      clearError(lnameErr);
+   } else {
+      lastName.classList.add("error-border");
+      lastName.classList.remove("valid-border");
    }
 });
 
@@ -103,7 +108,15 @@ email.addEventListener("input", function () {
    const emailValue = email.value;
 
    if (emailValue.includes("@")) {
-      clearError(email, emailErr);
+      email.classList.add("valid-border");
+      email.classList.remove("error-border");
+      clearError(emailErr);
+   } else if (emailValue === "") {
+      email.classList.remove("valid-border", "error-border");
+      clearError(emailErr);
+   } else {
+      email.classList.add("error-border");
+      email.classList.remove("valid-border");
    }
 });
 
@@ -123,11 +136,16 @@ msg.addEventListener("input", function () {
    txtCounter.classList.remove("under", "over");
 
    if (count === 0) {
+      msg.classList.remove("valid-border", "error-border");
       return;
    }
    if (count < 20) {
+      msg.classList.add("error-border");
+      msg.classList.remove("valid-border");
       txtCounter.classList.add("under");
    } else {
+      msg.classList.remove("error-border");
+      msg.classList.add("valid-border");
       clearError(msg, countErr);
       txtCounter.classList.add("over");
    }
