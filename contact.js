@@ -19,6 +19,19 @@ form.addEventListener("reset", function (e) {
    clearForm();
 });
 
+form.addEventListener("submit", function (e) {
+   const isFirstNameValid = validateName();
+   const isLastNameValid = validateLastName();
+   const isEmailValid = validateEmail();
+   const isMsgValid = validateMessage();
+
+   if (!isFirstNameValid || !isLastNameValid || !isEmailValid || !isMsgValid) {
+      e.preventDefault();
+   } else {
+      alert("Thanks");
+   }
+});
+
 // Validation functions
 function validateName() {
    const fnameValue = firstName.value;
@@ -157,6 +170,7 @@ msg.addEventListener("input", function () {
 
    if (count === 0) {
       msg.classList.remove("valid-border", "error-border");
+      clearError(countErr);
       return;
    }
    if (count < 20) {
@@ -166,7 +180,7 @@ msg.addEventListener("input", function () {
    } else {
       msg.classList.remove("error-border");
       msg.classList.add("valid-border");
-      clearError(msg, countErr);
+      clearError(countErr);
       txtCounter.classList.add("over");
    }
 });
