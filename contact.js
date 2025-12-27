@@ -21,10 +21,9 @@ function validateName() {
    const lettersOnly = /^[a-zA-Z]+$/;
 
    if (!lettersOnly.test(fnameValue)) {
-      showError(firstName, fnameErr, "Field can only contain letters!");
+      showError(fnameErr, "Field can only contain letters!");
       return false;
    }
-   firstName.classList.add("valid-border");
    return true;
 }
 
@@ -63,14 +62,12 @@ function validateMessage() {
    }
 }
 
-function showError(inputElement, outputElement, errMsg) {
-   inputElement.classList.add("error-border");
+function showError(outputElement, errMsg) {
    outputElement.classList.add("show");
    outputElement.textContent = errMsg;
 }
 
-function clearError(inputElement, outputElement) {
-   inputElement.classList.remove("error-border", "valid-border");
+function clearError(outputElement) {
    outputElement.classList.remove("show");
    outputElement.textContent = "";
 }
@@ -81,8 +78,16 @@ function clearForm() {}
 firstName.addEventListener("input", function () {
    const lettersOnly = /^[a-zA-Z]+$/;
 
-   if (lettersOnly.test(firstName.value) || firstName.value === "") {
-      clearError(firstName, fnameErr);
+   if (lettersOnly.test(firstName.value)) {
+      firstName.classList.add("valid-border");
+      firstName.classList.remove("error-border");
+      clearError(fnameErr);
+   } else if (firstName.value === "") {
+      firstName.classList.remove("valid-border", "error-border");
+      clearError(fnameErr);
+   } else {
+      firstName.classList.add("error-border");
+      firstName.classList.remove("valid-border");
    }
 });
 
