@@ -14,6 +14,10 @@ const countErr = document.getElementById("count-err");
 const txtCounter = document.getElementById("txt-counter");
 
 // Buttons
+form.addEventListener("reset", function (e) {
+   e.preventDefault();
+   clearForm();
+});
 
 // Validation functions
 function validateName() {
@@ -69,7 +73,23 @@ function clearError(outputElement) {
    outputElement.textContent = "";
 }
 
-function clearForm() {}
+function clearForm() {
+   firstName.value = "";
+   firstName.classList.remove("valid-border", "error-border");
+   fnameErr.classList.remove("show");
+   lastName.value = "";
+   lastName.classList.remove("valid-border", "error-border");
+   lnameErr.classList.remove("show");
+   email.value = "";
+   email.classList.remove("valid-border", "error-border");
+   emailErr.classList.remove("show");
+   subject.value = "";
+   subject.classList.remove("valid-border", "error-border");
+   msg.value = "";
+   msg.classList.remove("valid-border", "error-border");
+   txtCounter.textContent = "0 / 20";
+   txtCounter.classList.remove("under", "over");
+}
 
 // Eventlisteners
 firstName.addEventListener("input", function () {
