@@ -78,6 +78,7 @@ function validateMessage() {
    }
 }
 
+// Helpers
 function showError(outputElement, errMsg) {
    outputElement.classList.add("show");
    outputElement.textContent = errMsg;
