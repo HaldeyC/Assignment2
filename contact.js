@@ -182,7 +182,7 @@ subject.addEventListener("change", function () {
 msg.addEventListener("input", function () {
    const text = msg.value;
    const count = text.length;
-   txtCounter.textContent = count + " / " + "20";
+   txtCounter.textContent = count + " / " + "40";
 
    txtCounter.classList.remove("under", "over");
 
@@ -191,7 +191,7 @@ msg.addEventListener("input", function () {
       clearError(countErr);
       return;
    }
-   if (count < 20) {
+   if (count > 40) {
       msg.classList.add("error-border");
       msg.classList.remove("valid-border");
       txtCounter.classList.add("under");
